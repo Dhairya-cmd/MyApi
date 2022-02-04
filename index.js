@@ -14,6 +14,10 @@ mongoose.connect(db).then(()=>{
     app.use(bodyParser.urlencoded({extended:false}))
     app.use('/api',route)
     
+    app.get('/', (req,res) => {
+        res.sendFile('index.html', {root:__dirname})
+    })
+    
     app.listen(port,()=>{
         console.log('Server Started At Port 3000')
     })
